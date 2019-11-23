@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col';
+import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { async } from 'q';
@@ -60,35 +61,42 @@ export default class Register extends React.Component<IRegisterProps, IRegisterS
 
         const { password, lastName, firstName, userName ,isRegistered} = this.state;
 
-        // border: 3px solid black;
-        // padding: 10px;
-        // margin: 10px;
-        // width: 700px;
-        // margin - left: 320px;
+        
         return (
             <Form onSubmit={this.onSubmit}>
-                <h2 style={{ margin: "30px 25px" }}><u><b>Register</b></u></h2>
+                <h2 style={{ margin: "25px" }}><u><b> 
+                    <Badge pill variant="dark">Registration Page</Badge>
+                </b></u></h2>
+
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridPassword">
                         {/* <Form.Label>Password</Form.Label> */}
-                        <Form.Control style={{ width: "450px", margin: "auto" }} onChange={this.generateOnChangeHandler('password')} value={password} type="password" placeholder="🔑 Password 🔑" />
+                        <Form.Control style={{ width: "450px", margin: "auto" }}
+                            onChange={this.generateOnChangeHandler('password')}
+                            value={password} type="password" placeholder="🔑 Password 🔑" />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Group controlId="formGridAddress1">
                     {/* <Form.Label>User Name</Form.Label> */}
-                    <Form.Control style={{ width: "450px", margin: "auto" }} onChange={this.generateOnChangeHandler('userName')} value={userName} placeholder="Choose Your Unique UserName 🤷‍♀️🤷‍♂️" />
+                    <Form.Control style={{ width: "450px", margin: "auto" }}
+                        onChange={this.generateOnChangeHandler('userName')}
+                        value={userName} placeholder="Choose Your Unique UserName 🤷‍♀️🤷‍♂️" />
                 </Form.Group>
 
                 <Form.Group controlId="formGridAddress2">
                     {/* <Form.Label>First Name</Form.Label> */}
-                    <Form.Control style={{ width: "450px", margin: "auto" }} onChange={this.generateOnChangeHandler('firstName')} value={firstName} placeholder="First Name" />
+                    <Form.Control style={{ width: "450px", margin: "auto" }}
+                        onChange={this.generateOnChangeHandler('firstName')}
+                        value={firstName} placeholder="First Name" />
                 </Form.Group>
 
                 <Form.Row>
                     <Form.Group as={Col} controlId="Last Name">
                         {/* <Form.Label>Last Name</Form.Label> */}
-                        <Form.Control style={{ width: "450px", margin: "auto" }} onChange={this.generateOnChangeHandler('lastName')} value={lastName} placeholder="Last Name" />
+                        <Form.Control style={{ width: "450px", margin: "auto" }}
+                            onChange={this.generateOnChangeHandler('lastName')}
+                            value={lastName} placeholder="Last Name" />
                     </Form.Group>
                 </Form.Row>
                 <Button variant="primary" type="submit">

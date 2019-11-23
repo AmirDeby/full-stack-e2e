@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { reducer } from './reducer';
-import { createLogger } from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import App from './App';
+import './index.css';
+import { ActionType, reducer } from './reducer';
+import * as serviceWorker from './serviceWorker';
 
 const logger = createLogger({ collapsed: true });
 const middleware = [thunk, logger];
@@ -17,6 +17,14 @@ const store = createStore(reducer, composeWithDevTools(
     applyMiddleware(...middleware),
     // other store enhancers if any
 ));
+
+const token = localStorage.getItem('token');
+if (token) {
+    store.dispatch({
+        type: ActionType.LogIn,
+        payload: {}
+    });
+}
 
 ReactDOM.render(
     <Provider store={store}>
