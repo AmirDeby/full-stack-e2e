@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { async } from 'q';
+
 import { Link } from 'react-router-dom';
 
 
@@ -19,6 +19,7 @@ interface IRegisterState {
     isRegistered: boolean,
 
 }
+
 
 
 export default class Register extends React.Component<IRegisterProps, IRegisterState> {
@@ -67,23 +68,20 @@ export default class Register extends React.Component<IRegisterProps, IRegisterS
                 <h2 style={{ margin: "25px" }}><u><b> 
                     <Badge pill variant="dark">Registration Page</Badge>
                 </b></u></h2>
-
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridPassword">
-                        {/* <Form.Label>Password</Form.Label> */}
-                        <Form.Control style={{ width: "450px", margin: "auto" }}
-                            onChange={this.generateOnChangeHandler('password')}
-                            value={password} type="password" placeholder="🔑 Password 🔑" />
-                    </Form.Group>
-                </Form.Row>
-
                 <Form.Group controlId="formGridAddress1">
                     {/* <Form.Label>User Name</Form.Label> */}
                     <Form.Control style={{ width: "450px", margin: "auto" }}
                         onChange={this.generateOnChangeHandler('userName')}
                         value={userName} placeholder="Choose Your Unique UserName 🤷‍♀️🤷‍♂️" />
                 </Form.Group>
-
+                <Form.Row>
+                    <Form.Group as={Col} controlId="formGridPassword">
+                        {/* <Form.Label>Password</Form.Label> */}
+                        <Form.Control style={{ width: "450px", margin: "auto" }}
+                            onChange={this.generateOnChangeHandler('password')}
+                            value={password} type="password" placeholder="Password (You must use a sign (!@#$*))" />
+                    </Form.Group>
+                </Form.Row>
                 <Form.Group controlId="formGridAddress2">
                     {/* <Form.Label>First Name</Form.Label> */}
                     <Form.Control style={{ width: "450px", margin: "auto" }}

@@ -15,8 +15,8 @@ export interface IMembersAreaProps {
 
 class _MembersArea extends React.Component<IMembersAreaProps> {
     public render() {
-        const { isLogged, getSecret,secret } = this.props;
-        
+        const { isLogged, getSecret, secret } = this.props;
+
         if (!isLogged) {
             return <Redirect to="/login" />
         }
@@ -27,11 +27,11 @@ class _MembersArea extends React.Component<IMembersAreaProps> {
                         Member's Area
                       </Badge>
                 </h1>
-                <div>
+                <div style={{ margin: "25px" }} >
                     <Button onClick={getSecret}>Get Your Secret</Button>
                 </div>
                 <div>
-                    <h3>{secret}</h3>
+                    <h3 style={{ margin: "25px" }}>{secret}</h3>
                 </div>
             </div>
         );

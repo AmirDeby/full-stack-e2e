@@ -3,10 +3,9 @@ import Badge from 'react-bootstrap/Badge';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { logIn } from '../actions';
 import { IState } from '../reducer';
-import { Redirect } from 'react-router';
-import { string } from 'prop-types';
 
 export interface ILoginProps {
     logIn(userName: string, password: string): void;

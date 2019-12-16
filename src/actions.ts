@@ -1,6 +1,9 @@
 import { IAction, ActionType } from "./reducer";
 import Axios from 'axios';
 import { Dispatch } from "redux";
+import { async } from "q";
+import { number } from "prop-types";
+
 
 // logIn action creator
 export const logIn = (userName: string, password: string) => {
@@ -15,6 +18,29 @@ export const logIn = (userName: string, password: string) => {
         dispatch({
             type: ActionType.LogIn,
             payload: {}
+        })
+    }
+}
+
+export const getOrderFee = (number: number) => {
+    return async (dispatch: Dispatch<IAction>) => {
+        const response = await Axios.get('http://localhost:4000/orderSearch', {
+            params: { number },
+        });
+        console.log(response.data);
+        
+    }
+}
+
+export const searchCities = (keyword: string) => {
+    return async (dispatch: Dispatch<IAction>) => {
+        const response = await Axios.get('http://localhost:4000/searchCities', {
+            params: { keyword },
+        });
+
+        dispatch({
+            type: ActionType.SearchCities,
+            payload: response.data
         })
     }
 }
